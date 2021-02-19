@@ -1,0 +1,93 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}Manage Books{% endblock %}
+{% block css %}{% endblock %}
+
+{% block content %}
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Books in stock</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        <button class="btn btn-sm btn-outline-secondary">Single</button>
+      </div>
+    </div>
+  </div>
+
+    <!-- book number, category, title, publisher, year, author, price, total collection, inventory.-->
+    <br/>
+<div class="row">
+  <div class="col-sm-12">
+        <h5 class="card-title">1. Add new book</h5>
+        <form class="form-add" action="/book_manage/" method="post">{% csrf_token %}
+          <div class="form-row" >
+              <div class="form-group col-md-3">
+              <input type="text" class="form-control" id="inputTitle" placeholder="Title" name="title">
+                </div>
+            <div class="form-group col-md-3">
+              <input type="text" class="form-control" id="inputAuthor" placeholder="Author" name="author">
+            </div>
+            <div class="form-group col-md-3">
+              <input type="text" class="form-control" id="inputBno" placeholder="ISBN" name="bno">
+            </div>
+          </div>
+
+          <div class="form-row">
+             <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="inputCategory" name="category" placeholder="Category">
+            </div>
+              <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="inputPrice" name="price" placeholder="Price">
+            </div>
+          </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+              <input type="text" class="form-control" id="inputStock" name="stock" placeholder="Stock">
+               </div>
+               <div class="form-group col-md-4">
+              <input type="text" class="form-control" id="inputTotal" name="total" placeholder="Total">
+            </div>
+            </div>
+            <div class="form-row">
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" id="inputYear" name="year" placeholder="Year">
+            </div>
+                <div class="form-group col-md-4">
+                <input type="text" class="form-control" id="inputPress" name="press" placeholder="Press">
+            </div>
+            </div>
+
+          <input type="submit" class="btn btn-primary" value="Add" name="single_add"/>
+
+            </form>
+
+            <hr>
+
+             <br>
+          {% if messages %}
+            {% for message in messages %}
+            {% if message.tags == "success" %}
+            <div class="alert alert-success col-md-3">
+                <a href="#" class="close" data-dismiss="alert">
+                    &times;
+                </a>
+                <span>{{ message }}</span>
+            </div>
+           {% else %}
+            <div class="alert alert-danger col-md-3">
+                <a href="#" class="close" data-dismiss="alert">
+                    &times;
+                </a>
+                <span>{{ message }}</span>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+  </div>
+
+</div>
+
+
+</main>
+
+{% endblock %}
