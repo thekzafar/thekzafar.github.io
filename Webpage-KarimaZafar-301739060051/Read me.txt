@@ -1,0 +1,8 @@
+In this webpage I used HTML and CSS, I inroduced myself a little, but I mainly focused on 
+trying different styles, using images, buttons, menu, changing button highlights 
+while hovering mouse pointer around it. Created different boxes, used different colors, 
+added headers and footers, social media icons, copyrights, etc.
+
+I am Karima Zafar - 201739060051
+Software Engineering, 2017
+Southwest Petroleum University
